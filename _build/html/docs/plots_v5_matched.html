@@ -161,8 +161,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mymarkdownfile.html">Here’s my sample title</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Plots for fully matched dataset</a></li>
-
-
 </ul>
 
     </div>
@@ -387,17 +385,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plots for fully matched dataset</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs-invariant-mass">Higgs invariant mass</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top-invariant-mass">Hadronic top invariant mass</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-plots">More plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#btag-plots">btag plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-histograms-of-correlations">2D Histograms of correlations</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#btag-plots">btag plots</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-histograms-of-correlations">2D Histograms of correlations</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -434,39 +428,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="nn">Input In [7],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;Users/juliamaidannyk/Downloads/SPANet/0903_output_v5_matched.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df_input</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;Users/juliamaidannyk/Downloads/SPANet/data/tth_matched_2.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/h5py/_hl/files.py:406,</span> in <span class="ni">File.__init__</span><span class="nt">(self, name, mode, driver, libver, userblock_size, swmr, rdcc_nslots, rdcc_nbytes, rdcc_w0, track_order, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span> <span class="k">with</span> <span class="n">phil</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">405</span>     <span class="n">fapl</span> <span class="o">=</span> <span class="n">make_fapl</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">libver</span><span class="p">,</span> <span class="n">rdcc_nslots</span><span class="p">,</span> <span class="n">rdcc_nbytes</span><span class="p">,</span> <span class="n">rdcc_w0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">406</span>     <span class="n">fid</span> <span class="o">=</span> <span class="n">make_fid</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">userblock_size</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span>                    <span class="n">fapl</span><span class="p">,</span> <span class="n">fcpl</span><span class="o">=</span><span class="n">make_fcpl</span><span class="p">(</span><span class="n">track_order</span><span class="o">=</span><span class="n">track_order</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span>                    <span class="n">swmr</span><span class="o">=</span><span class="n">swmr</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">410</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">libver</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_libver</span> <span class="o">=</span> <span class="n">libver</span>
-
-<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/h5py/_hl/files.py:173,</span> in <span class="ni">make_fid</span><span class="nt">(name, mode, userblock_size, fapl, fcpl, swmr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span>     <span class="k">if</span> <span class="n">swmr</span> <span class="ow">and</span> <span class="n">swmr_support</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">172</span>         <span class="n">flags</span> <span class="o">|=</span> <span class="n">h5f</span><span class="o">.</span><span class="n">ACC_SWMR_READ</span>
-<span class="ne">--&gt; </span><span class="mi">173</span>     <span class="n">fid</span> <span class="o">=</span> <span class="n">h5f</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">fapl</span><span class="o">=</span><span class="n">fapl</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">174</span> <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;r+&#39;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">175</span>     <span class="n">fid</span> <span class="o">=</span> <span class="n">h5f</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">h5f</span><span class="o">.</span><span class="n">ACC_RDWR</span><span class="p">,</span> <span class="n">fapl</span><span class="o">=</span><span class="n">fapl</span><span class="p">)</span>
-
-<span class="nn">File h5py/_objects.pyx:54,</span> in <span class="ni">h5py._objects.with_phil.wrapper</span><span class="nt">()</span>
-
-<span class="nn">File h5py/_objects.pyx:55,</span> in <span class="ni">h5py._objects.with_phil.wrapper</span><span class="nt">()</span>
-
-<span class="nn">File h5py/h5f.pyx:88,</span> in <span class="ni">h5py.h5f.open</span><span class="nt">()</span>
-
-<span class="ne">OSError</span>: Unable to open file (unable to open file: name = &#39;Users/juliamaidannyk/Downloads/SPANet/0903_output_v5_matched.h5&#39;, errno = 2, error message = &#39;No such file or directory&#39;, flags = 0, o_flags = 0)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -475,27 +436,6 @@ document.write(`
     <span class="n">f</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;INPUTS&quot;</span><span class="p">][</span><span class="s2">&quot;Source&quot;</span><span class="p">][</span><span class="n">f</span><span class="p">][()]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span>
 <span class="p">},</span> <span class="n">with_name</span><span class="o">=</span><span class="s2">&quot;Momentum4D&quot;</span><span class="p">)</span>
 <span class="n">jets</span><span class="p">[</span><span class="s2">&quot;m&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">jets</span><span class="o">.</span><span class="n">pt</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [6],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span><span class="s1">&#39;eta&#39;</span><span class="p">,</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span><span class="s1">&#39;btag&#39;</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">jets</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">zip</span><span class="p">({</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">f</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;INPUTS&quot;</span><span class="p">][</span><span class="s2">&quot;Source&quot;</span><span class="p">][</span><span class="n">f</span><span class="p">][()]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">},</span> <span class="n">with_name</span><span class="o">=</span><span class="s2">&quot;Momentum4D&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">jets</span><span class="p">[</span><span class="s2">&quot;m&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">jets</span><span class="o">.</span><span class="n">pt</span><span class="p">)</span>
-
-<span class="nn">Input In [6],</span> in <span class="ni">&lt;dictcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span><span class="s1">&#39;eta&#39;</span><span class="p">,</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span><span class="s1">&#39;btag&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">jets</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">zip</span><span class="p">({</span>
-<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">f</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;INPUTS&quot;</span><span class="p">][</span><span class="s2">&quot;Source&quot;</span><span class="p">][</span><span class="n">f</span><span class="p">][()]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">},</span> <span class="n">with_name</span><span class="o">=</span><span class="s2">&quot;Momentum4D&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">jets</span><span class="p">[</span><span class="s2">&quot;m&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">jets</span><span class="o">.</span><span class="n">pt</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;df&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -566,7 +506,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/08e7e76f472dfaf8d5e48f071bd9d8e21f467363a8508435842d1c1ec9bbdb94.png" src="../_images/08e7e76f472dfaf8d5e48f071bd9d8e21f467363a8508435842d1c1ec9bbdb94.png" />
+<img alt="../_images/4f1b84ab609541c661bb27d2022be9b084485fdf0b5178eb65646242672bd181.png" src="../_images/4f1b84ab609541c661bb27d2022be9b084485fdf0b5178eb65646242672bd181.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -597,7 +537,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02c7574d8bd62dd26d273fb84f02c432dba3cadc136e2d0d1a6e8564d9922043.png" src="../_images/02c7574d8bd62dd26d273fb84f02c432dba3cadc136e2d0d1a6e8564d9922043.png" />
+<img alt="../_images/8c98cb65ab65b8314543f0a57b07cc1786660f19afc34951782613b34792f501.png" src="../_images/8c98cb65ab65b8314543f0a57b07cc1786660f19afc34951782613b34792f501.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -683,7 +623,7 @@ Length of higgs_jet_true: 67876
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5b2598482957577feeb7c250443f70570ca2c6a3385d9961ce528cd78144a58c.png" src="../_images/5b2598482957577feeb7c250443f70570ca2c6a3385d9961ce528cd78144a58c.png" />
+<img alt="../_images/4b89851dbe7a2c64e63c8a8f230ba531eb3fb62fc8abfe1abce27d5ee1584ac7.png" src="../_images/4b89851dbe7a2c64e63c8a8f230ba531eb3fb62fc8abfe1abce27d5ee1584ac7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -700,7 +640,7 @@ Length of higgs_jet_true: 67876
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6a59d726d1fb596ec887e7e3c7cb8194daf2b6f27bebb82614fedf356287ebad.png" src="../_images/6a59d726d1fb596ec887e7e3c7cb8194daf2b6f27bebb82614fedf356287ebad.png" />
+<img alt="../_images/046bc2581af65ef56ba43afc81b44c74ff7592d10128483125a8925fad8d5e5b.png" src="../_images/046bc2581af65ef56ba43afc81b44c74ff7592d10128483125a8925fad8d5e5b.png" />
 </div>
 </div>
 </section>
@@ -748,60 +688,6 @@ Length of higgs_jet_true: 67876
 </section>
 <section id="more-plots">
 <h2>More plots<a class="headerlink" href="#more-plots" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">))</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;mass&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">))</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pt&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">eta</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;eta&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">phi</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-               <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;phi&#39;</span><span class="p">)</span>
-
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Higgs true plots&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/db6272f719a19b094ea9edd09699e795a1d362536abf90b4c846e969271c78e7.png" src="../_images/db6272f719a19b094ea9edd09699e795a1d362536abf90b4c846e969271c78e7.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_jet_pred</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_jet_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">))</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;mass&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_jet_pred</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_jet_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">))</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pt&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_jet_pred</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_jet_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">eta</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;eta&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_jet_pred</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_jet_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">phi</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-               <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;phi&#39;</span><span class="p">)</span>
-
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Higgs predicted plots&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/fbe21061b70b8780801aa83379e415a00abd0d845fa32f0ce928f7f7190f1adc.png" src="../_images/fbe21061b70b8780801aa83379e415a00abd0d845fa32f0ce928f7f7190f1adc.png" />
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_m_pt_eta_phi</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -892,6 +778,26 @@ Length of higgs_jet_true: 67876
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_m_pt_eta_phi</span><span class="p">(</span><span class="n">higgs_jet_true</span><span class="p">,</span> <span class="s2">&quot;Higgs true&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/247e5b9d8e692645690d531d7677e27611eaa87543e4a546b36566c25568f9bd.png" src="../_images/247e5b9d8e692645690d531d7677e27611eaa87543e4a546b36566c25568f9bd.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_m_pt_eta_phi</span><span class="p">(</span><span class="n">higgs_jet_pred</span><span class="p">,</span> <span class="s2">&quot;Higgs predicted&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ee1b69b6064577163f49425fbc299dcd60b574f27282244ade9322845cb3f3a7.png" src="../_images/ee1b69b6064577163f49425fbc299dcd60b574f27282244ade9322845cb3f3a7.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_m_pt_eta_phi</span><span class="p">(</span><span class="n">hadtop_jet_true</span><span class="p">,</span> <span class="s2">&quot;Hadronic top true&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -953,14 +859,11 @@ Length of higgs_jet_true: 67876
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="btag-plots">
-<h1>btag plots<a class="headerlink" href="#btag-plots" title="Permalink to this heading">#</a></h1>
+<section id="btag-plots">
+<h2>btag plots<a class="headerlink" href="#btag-plots" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leptop_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">btag</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leptop_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">btag</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leptop_jet_pred</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">btag</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;predicted&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;btag score&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper center&quot;</span><span class="p">)</span>
@@ -970,9 +873,7 @@ Length of higgs_jet_true: 67876
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d9876531223506d66d72181a2c4cacf9087efd7c85994e1e7a9dc2dc64900e24.png" src="../_images/d9876531223506d66d72181a2c4cacf9087efd7c85994e1e7a9dc2dc64900e24.png" />
-<img alt="../_images/74e87d6b676a548aff82b3c549b2e2a9d678153c7ca72e5df7ab122d263d073f.png" src="../_images/74e87d6b676a548aff82b3c549b2e2a9d678153c7ca72e5df7ab122d263d073f.png" />
-<img alt="../_images/35bd0abe2d9e0178be0f9c841e6ed4990558d085ab45da9a186bf8a5675a16cd.png" src="../_images/35bd0abe2d9e0178be0f9c841e6ed4990558d085ab45da9a186bf8a5675a16cd.png" />
+<img alt="../_images/baf81823575d352e91937e10a6ae591fa6bb941bf6b5cd20fd11717337fb2d65.png" src="../_images/baf81823575d352e91937e10a6ae591fa6bb941bf6b5cd20fd11717337fb2d65.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1001,9 +902,9 @@ Length of higgs_jet_true: 67876
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f4224172db5071cd0f09421efd1533c0023aec1866f160a20fea7ef977d8299f.png" src="../_images/f4224172db5071cd0f09421efd1533c0023aec1866f160a20fea7ef977d8299f.png" />
-<img alt="../_images/7b092986b38120982ccddc45bab2849711091d860a2f134b8a1eea6af25fb7b9.png" src="../_images/7b092986b38120982ccddc45bab2849711091d860a2f134b8a1eea6af25fb7b9.png" />
-<img alt="../_images/75d1726ff5add659a75d20e6e7093a4e165b7534ebfaf605096e38d6990986c1.png" src="../_images/75d1726ff5add659a75d20e6e7093a4e165b7534ebfaf605096e38d6990986c1.png" />
+<img alt="../_images/1c638db2bde759743671f45e4c007ee19b4d414ba5cf29801bf8de10c7623f30.png" src="../_images/1c638db2bde759743671f45e4c007ee19b4d414ba5cf29801bf8de10c7623f30.png" />
+<img alt="../_images/39c2e578092c12dc6ced09e3d70843af41fece4cd0248550d1a9a14ee4980950.png" src="../_images/39c2e578092c12dc6ced09e3d70843af41fece4cd0248550d1a9a14ee4980950.png" />
+<img alt="../_images/cd48980470ba7d0ea994cab52a671e1a167fcbe422a0a7e24c97efbd495fb1f7.png" src="../_images/cd48980470ba7d0ea994cab52a671e1a167fcbe422a0a7e24c97efbd495fb1f7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1025,18 +926,16 @@ Length of higgs_jet_true: 67876
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/67aec65f7783c1c61a1b9b98b6f89a8a8c6889148060ae890c9b03832e96d28e.png" src="../_images/67aec65f7783c1c61a1b9b98b6f89a8a8c6889148060ae890c9b03832e96d28e.png" />
-<img alt="../_images/2d78f0f9392b63bdd0de2d7cacf166a87108f83b71bc7594b262f36245abc73b.png" src="../_images/2d78f0f9392b63bdd0de2d7cacf166a87108f83b71bc7594b262f36245abc73b.png" />
+<img alt="../_images/b8f14cfd2f40d87a16b256c9121906615da225ee6995d185ccd0e7a16b84f902.png" src="../_images/b8f14cfd2f40d87a16b256c9121906615da225ee6995d185ccd0e7a16b84f902.png" />
+<img alt="../_images/b16ff53899cd74b989a3c5ba210f691cc71eb57d569aa7b288e4496f359af601.png" src="../_images/b16ff53899cd74b989a3c5ba210f691cc71eb57d569aa7b288e4496f359af601.png" />
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="d-histograms-of-correlations">
-<h1>2D Histograms of correlations<a class="headerlink" href="#d-histograms-of-correlations" title="Permalink to this heading">#</a></h1>
+<section id="d-histograms-of-correlations">
+<h2>2D Histograms of correlations<a class="headerlink" href="#d-histograms-of-correlations" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span>
-
-<span class="n">first_pt</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_pt</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 <span class="n">second_pt</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">first_pt</span><span class="p">,</span> <span class="n">second_pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">600</span><span class="p">]]),</span>
           <span class="n">norm</span><span class="o">=</span><span class="n">LogNorm</span><span class="p">())</span>
@@ -1059,15 +958,13 @@ Length of higgs_jet_true: 67876
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/78d5f3de99bb54bbdf72f54c5a891fd46f49429c4cb45a73872e453166a2815a.png" src="../_images/78d5f3de99bb54bbdf72f54c5a891fd46f49429c4cb45a73872e453166a2815a.png" />
-<img alt="../_images/51cdff614baa02194715001ebbd275b5f9006e5bef45d53737da20889940d518.png" src="../_images/51cdff614baa02194715001ebbd275b5f9006e5bef45d53737da20889940d518.png" />
+<img alt="../_images/68e86faccd854dbb353100384c494dd55eaa7ca518fec854e98be0f2cc46cf8a.png" src="../_images/68e86faccd854dbb353100384c494dd55eaa7ca518fec854e98be0f2cc46cf8a.png" />
+<img alt="../_images/d1ea2178c71aee9a1e64a961ef38857c08a48b14d0e7cb08a4417144ce4a92ec.png" src="../_images/d1ea2178c71aee9a1e64a961ef38857c08a48b14d0e7cb08a4417144ce4a92ec.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span>
-
-<span class="n">first_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 <span class="n">second_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">first_pt</span><span class="p">,</span> <span class="n">second_pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">600</span><span class="p">]]),</span>
           <span class="n">norm</span><span class="o">=</span><span class="n">LogNorm</span><span class="p">())</span>
@@ -1090,15 +987,13 @@ Length of higgs_jet_true: 67876
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3b4536fb1ef16730fd190e1ec7a9786afd8a045fd3d30b765ecdb3826fd51ae9.png" src="../_images/3b4536fb1ef16730fd190e1ec7a9786afd8a045fd3d30b765ecdb3826fd51ae9.png" />
-<img alt="../_images/8f68eed1464dff5ee5b96d69fcdc3022262bc897594a0bb677034aa8041dd4e5.png" src="../_images/8f68eed1464dff5ee5b96d69fcdc3022262bc897594a0bb677034aa8041dd4e5.png" />
+<img alt="../_images/74d526cd081d1d7109f74a68a19680c23394042d4336d93364701eb8d09c4da3.png" src="../_images/74d526cd081d1d7109f74a68a19680c23394042d4336d93364701eb8d09c4da3.png" />
+<img alt="../_images/f332b1cd7b1ec558d28bc33723d21cffd90f1bf3f4c66f76a28f81301ccf87b2.png" src="../_images/f332b1cd7b1ec558d28bc33723d21cffd90f1bf3f4c66f76a28f81301ccf87b2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
-
-<span class="n">first_true_pt</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_true_pt</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 <span class="n">second_true_pt</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 
 <span class="n">first_pred_pt</span> <span class="o">=</span> <span class="n">higgs_jet_pred</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
@@ -1126,9 +1021,7 @@ Length of higgs_jet_true: 67876
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#mpl.rcParams[&#39;figure.dpi&#39;] = 100</span>
-
-<span class="n">first_true_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_true_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 <span class="n">second_true_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 
 <span class="n">first_pred_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_pred</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
@@ -1156,8 +1049,7 @@ Length of higgs_jet_true: 67876
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">third_pred_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_pred</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">third_pred_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_pred</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 <span class="n">third_true_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">third_pred_pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">600</span><span class="p">),</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
@@ -1169,9 +1061,10 @@ Length of higgs_jet_true: 67876
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/927bc15deb298c40c6eb326a43996e19e411dc7c56ead8f985dc13ddc1d433cf.png" src="../_images/927bc15deb298c40c6eb326a43996e19e411dc7c56ead8f985dc13ddc1d433cf.png" />
+<img alt="../_images/f4bb4bef9482e1683aa5fa8c1bc2a48946277f66bdd526fb2c68283c1719f59b.png" src="../_images/f4bb4bef9482e1683aa5fa8c1bc2a48946277f66bdd526fb2c68283c1719f59b.png" />
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1226,17 +1119,13 @@ Length of higgs_jet_true: 67876
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plots for fully matched dataset</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs-invariant-mass">Higgs invariant mass</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top-invariant-mass">Hadronic top invariant mass</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-plots">More plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#btag-plots">btag plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-histograms-of-correlations">2D Histograms of correlations</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#btag-plots">btag plots</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-histograms-of-correlations">2D Histograms of correlations</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
