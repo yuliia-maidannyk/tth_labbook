@@ -4,4 +4,5 @@
 format: jb-book
 root: intro
 chapters:
+- file: docs/JetTagging_InitialPlots
 - file: docs/plots_v5_matched
