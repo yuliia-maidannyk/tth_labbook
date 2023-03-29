@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Higgs invariant mass &#8212; ttH Lab Book</title>
+    <title>Plots for fully matched dataset &#8212; ttH Lab Book</title>
   
   
   
@@ -159,10 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mymarkdownfile.html">Here’s my sample title</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Higgs invariant mass</a></li>
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Plots for fully matched dataset</a></li>
 
 
 </ul>
@@ -206,6 +203,37 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yuliia-maidannyk/jupyter_plots.git/HEAD/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/plots_v5_matched.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -348,7 +376,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Higgs invariant mass</h1>
+    <h1>Plots for fully matched dataset</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -358,10 +386,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Higgs invariant mass</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top-invariant-mass">Hadronic top invariant mass</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#more-plots">More plots</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plots for fully matched dataset</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs-invariant-mass">Higgs invariant mass</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top-invariant-mass">Hadronic top invariant mass</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-plots">More plots</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#btag-plots">btag plots</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-histograms-of-correlations">2D Histograms of correlations</a></li>
 </ul>
@@ -376,7 +407,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="plots-for-fully-matched-dataset">
+<h1>Plots for fully matched dataset<a class="headerlink" href="#plots-for-fully-matched-dataset" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">h5py</span>
 <span class="kn">import</span> <span class="nn">awkward</span> <span class="k">as</span> <span class="nn">ak</span>
@@ -392,24 +425,44 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">h5py</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">awkward</span> <span class="k">as</span> <span class="nn">ak</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">vector</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;awkward&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;./SPANet/0903_output_v5_matched.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">df_input</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;./SPANet/data/tth_matched_2.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;Users/juliamaidannyk/Downloads/SPANet/0903_output_v5_matched.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">df_input</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;Users/juliamaidannyk/Downloads/SPANet/data/tth_matched_2.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;Users/juliamaidannyk/Downloads/SPANet/0903_output_v5_matched.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df_input</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;Users/juliamaidannyk/Downloads/SPANet/data/tth_matched_2.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/h5py/_hl/files.py:406,</span> in <span class="ni">File.__init__</span><span class="nt">(self, name, mode, driver, libver, userblock_size, swmr, rdcc_nslots, rdcc_nbytes, rdcc_w0, track_order, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span> <span class="k">with</span> <span class="n">phil</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span>     <span class="n">fapl</span> <span class="o">=</span> <span class="n">make_fapl</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">libver</span><span class="p">,</span> <span class="n">rdcc_nslots</span><span class="p">,</span> <span class="n">rdcc_nbytes</span><span class="p">,</span> <span class="n">rdcc_w0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">406</span>     <span class="n">fid</span> <span class="o">=</span> <span class="n">make_fid</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">userblock_size</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">407</span>                    <span class="n">fapl</span><span class="p">,</span> <span class="n">fcpl</span><span class="o">=</span><span class="n">make_fcpl</span><span class="p">(</span><span class="n">track_order</span><span class="o">=</span><span class="n">track_order</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">408</span>                    <span class="n">swmr</span><span class="o">=</span><span class="n">swmr</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">libver</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">411</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_libver</span> <span class="o">=</span> <span class="n">libver</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/h5py/_hl/files.py:173,</span> in <span class="ni">make_fid</span><span class="nt">(name, mode, userblock_size, fapl, fcpl, swmr)</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span>     <span class="k">if</span> <span class="n">swmr</span> <span class="ow">and</span> <span class="n">swmr_support</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span>         <span class="n">flags</span> <span class="o">|=</span> <span class="n">h5f</span><span class="o">.</span><span class="n">ACC_SWMR_READ</span>
+<span class="ne">--&gt; </span><span class="mi">173</span>     <span class="n">fid</span> <span class="o">=</span> <span class="n">h5f</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">fapl</span><span class="o">=</span><span class="n">fapl</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span> <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;r+&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>     <span class="n">fid</span> <span class="o">=</span> <span class="n">h5f</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">h5f</span><span class="o">.</span><span class="n">ACC_RDWR</span><span class="p">,</span> <span class="n">fapl</span><span class="o">=</span><span class="n">fapl</span><span class="p">)</span>
+
+<span class="nn">File h5py/_objects.pyx:54,</span> in <span class="ni">h5py._objects.with_phil.wrapper</span><span class="nt">()</span>
+
+<span class="nn">File h5py/_objects.pyx:55,</span> in <span class="ni">h5py._objects.with_phil.wrapper</span><span class="nt">()</span>
+
+<span class="nn">File h5py/h5f.pyx:88,</span> in <span class="ni">h5py.h5f.open</span><span class="nt">()</span>
+
+<span class="ne">OSError</span>: Unable to open file (unable to open file: name = &#39;Users/juliamaidannyk/Downloads/SPANet/0903_output_v5_matched.h5&#39;, errno = 2, error message = &#39;No such file or directory&#39;, flags = 0, o_flags = 0)
 </pre></div>
 </div>
 </div>
@@ -421,6 +474,27 @@ document.write(`
     <span class="n">f</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;INPUTS&quot;</span><span class="p">][</span><span class="s2">&quot;Source&quot;</span><span class="p">][</span><span class="n">f</span><span class="p">][()]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span>
 <span class="p">},</span> <span class="n">with_name</span><span class="o">=</span><span class="s2">&quot;Momentum4D&quot;</span><span class="p">)</span>
 <span class="n">jets</span><span class="p">[</span><span class="s2">&quot;m&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">jets</span><span class="o">.</span><span class="n">pt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [6],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span><span class="s1">&#39;eta&#39;</span><span class="p">,</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span><span class="s1">&#39;btag&#39;</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">jets</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">zip</span><span class="p">({</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">f</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;INPUTS&quot;</span><span class="p">][</span><span class="s2">&quot;Source&quot;</span><span class="p">][</span><span class="n">f</span><span class="p">][()]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">},</span> <span class="n">with_name</span><span class="o">=</span><span class="s2">&quot;Momentum4D&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">jets</span><span class="p">[</span><span class="s2">&quot;m&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">jets</span><span class="o">.</span><span class="n">pt</span><span class="p">)</span>
+
+<span class="nn">Input In [6],</span> in <span class="ni">&lt;dictcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span><span class="s1">&#39;eta&#39;</span><span class="p">,</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span><span class="s1">&#39;btag&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">jets</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">zip</span><span class="p">({</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">f</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;INPUTS&quot;</span><span class="p">][</span><span class="s2">&quot;Source&quot;</span><span class="p">][</span><span class="n">f</span><span class="p">][()]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">},</span> <span class="n">with_name</span><span class="o">=</span><span class="s2">&quot;Momentum4D&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">jets</span><span class="p">[</span><span class="s2">&quot;m&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">jets</span><span class="o">.</span><span class="n">pt</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;df&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -468,7 +542,7 @@ document.write(`
 </div>
 </div>
 <section id="higgs-invariant-mass">
-<h1>Higgs invariant mass<a class="headerlink" href="#higgs-invariant-mass" title="Permalink to this headline">#</a></h1>
+<h2>Higgs invariant mass<a class="headerlink" href="#higgs-invariant-mass" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H_b1_true</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">df_input</span><span class="p">[</span><span class="s2">&quot;TARGETS&quot;</span><span class="p">][</span><span class="s2">&quot;h&quot;</span><span class="p">][</span><span class="s2">&quot;b1&quot;</span><span class="p">][()])</span>
@@ -573,7 +647,7 @@ Length of higgs_jet_true: 67876
 </div>
 </section>
 <section id="hadronic-top-invariant-mass">
-<h1>Hadronic top invariant mass<a class="headerlink" href="#hadronic-top-invariant-mass" title="Permalink to this headline">#</a></h1>
+<h2>Hadronic top invariant mass<a class="headerlink" href="#hadronic-top-invariant-mass" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t1_q1_pred</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;TARGETS&quot;</span><span class="p">][</span><span class="s2">&quot;t1&quot;</span><span class="p">][</span><span class="s2">&quot;q1&quot;</span><span class="p">][()])</span>
@@ -630,7 +704,7 @@ Length of higgs_jet_true: 67876
 </div>
 </section>
 <section id="leptonic-top">
-<h1>Leptonic top<a class="headerlink" href="#leptonic-top" title="Permalink to this headline">#</a></h1>
+<h2>Leptonic top<a class="headerlink" href="#leptonic-top" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t2_b_pred</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;TARGETS&quot;</span><span class="p">][</span><span class="s2">&quot;t2&quot;</span><span class="p">][</span><span class="s2">&quot;b&quot;</span><span class="p">][()])</span>
@@ -672,7 +746,7 @@ Length of higgs_jet_true: 67876
 </div>
 </section>
 <section id="more-plots">
-<h1>More plots<a class="headerlink" href="#more-plots" title="Permalink to this headline">#</a></h1>
+<h2>More plots<a class="headerlink" href="#more-plots" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -877,6 +951,7 @@ Length of higgs_jet_true: 67876
 <img alt="_images/7a21266e87ef8cb4c567d28dee6fbca876d211e1645fabe00b74ef767f2c3cb9.png" src="_images/7a21266e87ef8cb4c567d28dee6fbca876d211e1645fabe00b74ef767f2c3cb9.png" />
 </div>
 </div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="btag-plots">
 <h1>btag plots<a class="headerlink" href="#btag-plots" title="Permalink to this headline">#</a></h1>
@@ -1150,10 +1225,13 @@ Length of higgs_jet_true: 67876
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Higgs invariant mass</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top-invariant-mass">Hadronic top invariant mass</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#more-plots">More plots</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plots for fully matched dataset</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs-invariant-mass">Higgs invariant mass</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top-invariant-mass">Hadronic top invariant mass</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-plots">More plots</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#btag-plots">btag plots</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-histograms-of-correlations">2D Histograms of correlations</a></li>
 </ul>
