@@ -1,3 +1,8 @@
 jupyter-book
 matplotlib
 numpy
+h5py
+awkward
+vector
+mplhep
+pandas
