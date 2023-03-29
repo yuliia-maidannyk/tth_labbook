@@ -10,3 +10,4 @@ dependencies:
   - vector
   - mplhep
   - jupyter-book
+  - ghp-import
