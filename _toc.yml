@@ -8,4 +8,4 @@ chapters:
 - file: notebooks
 - file: markdown-notebooks
 - file: mymarkdownfile
-- file: plots_v5_matched
+- file: docs/plots_v5_matched

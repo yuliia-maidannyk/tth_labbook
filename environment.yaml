@@ -1,0 +1,12 @@
+name: labbook-env
+channels:
+  - conda-forge
+dependencies:
+  - pandas
+  - matplotlib
+  - h5py
+  - awkward
+  - numpy
+  - vector
+  - mplhep
+  - jupyter-book
