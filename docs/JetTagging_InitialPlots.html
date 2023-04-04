@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Parton matching &#8212; ttH Lab Book</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -67,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Plots for fully matched dataset" href="plots_v5_matched.html" />
     <link rel="prev" title="Welcome to your Jupyter Book" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -162,6 +161,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l1"><a class="reference internal" href="plots_v5_matched.html">Plots for fully matched dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="correct_vs_wrong.html">Correct vs wrong pt distributions</a></li>
 </ul>
 
     </div>
@@ -1234,7 +1234,7 @@ trick: histt</p></li>
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="parton-matching">
-<h1>Parton matching<a class="headerlink" href="#parton-matching" title="Permalink to this heading">#</a></h1>
+<h1>Parton matching<a class="headerlink" href="#parton-matching" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jets</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">with_name</span><span class="p">(</span><span class="n">jets</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Momentum4D&quot;</span><span class="p">)</span>
@@ -1335,7 +1335,7 @@ same as higgs</p></li>
 same as the higgs</p></li>
 </ul>
 <section id="higgs">
-<h2>Higgs<a class="headerlink" href="#higgs" title="Permalink to this heading">#</a></h2>
+<h2>Higgs<a class="headerlink" href="#higgs" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_jets</span> <span class="o">=</span> <span class="n">jets</span><span class="p">[</span><span class="n">jets</span><span class="o">.</span><span class="n">prov</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
@@ -1402,7 +1402,7 @@ same as the higgs</p></li>
 </div>
 </section>
 <section id="w-boson">
-<h2>W boson<a class="headerlink" href="#w-boson" title="Permalink to this heading">#</a></h2>
+<h2>W boson<a class="headerlink" href="#w-boson" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q_jets</span> <span class="o">=</span> <span class="n">jets</span><span class="p">[</span><span class="n">jets</span><span class="o">.</span><span class="n">prov</span> <span class="o">==</span> <span class="mi">5</span><span class="p">]</span>
@@ -1479,7 +1479,7 @@ same as the higgs</p></li>
 </div>
 </section>
 <section id="top-quark">
-<h2>Top quark<a class="headerlink" href="#top-quark" title="Permalink to this heading">#</a></h2>
+<h2>Top quark<a class="headerlink" href="#top-quark" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w_or_t_jets</span> <span class="o">=</span> <span class="n">jets</span><span class="p">[(</span><span class="n">jets</span><span class="o">.</span><span class="n">prov</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">jets</span><span class="o">.</span><span class="n">prov</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)]</span>
@@ -1592,7 +1592,7 @@ same as the higgs</p></li>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="comparing-jet-quantities-with-parton-quantities">
-<h1>Comparing jet quantities with parton quantities<a class="headerlink" href="#comparing-jet-quantities-with-parton-quantities" title="Permalink to this heading">#</a></h1>
+<h1>Comparing jet quantities with parton quantities<a class="headerlink" href="#comparing-jet-quantities-with-parton-quantities" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parton</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -1848,7 +1848,7 @@ same as the higgs</p></li>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="d-histograms-for-partons-vs-jets">
-<h1>2D histograms for partons vs jets<a class="headerlink" href="#d-histograms-for-partons-vs-jets" title="Permalink to this heading">#</a></h1>
+<h1>2D histograms for partons vs jets<a class="headerlink" href="#d-histograms-for-partons-vs-jets" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist2d</span><span class="p">((</span><span class="n">h_jets</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">h_jets</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span>
@@ -1991,7 +1991,7 @@ same as the higgs</p></li>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="single-jet-vs-single-parton">
-<h1>Single jet vs single parton<a class="headerlink" href="#single-jet-vs-single-parton" title="Permalink to this heading">#</a></h1>
+<h1>Single jet vs single parton<a class="headerlink" href="#single-jet-vs-single-parton" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">h_jets</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">h_parton</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">600</span><span class="p">]]),</span> <span class="n">norm</span><span class="o">=</span><span class="n">LogNorm</span><span class="p">())</span>
