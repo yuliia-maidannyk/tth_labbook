@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Plots for fully matched dataset &#8212; ttH Lab Book</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -64,9 +63,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/plots_v5_matched';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="../intro.html" />
+    <link rel="next" title="Correct vs wrong pt distributions" href="correct_vs_wrong.html" />
+    <link rel="prev" title="Parton matching" href="JetTagging_InitialPlots.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -156,7 +156,12 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="JetTagging_InitialPlots.html">Parton matching</a></li>
+
+
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Plots for fully matched dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="correct_vs_wrong.html">Correct vs wrong pt distributions</a></li>
 </ul>
 
     </div>
@@ -381,9 +386,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialise">Initialise</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs-invariant-mass">Higgs invariant mass</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top-invariant-mass">Hadronic top invariant mass</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top-invariant-mass">Leptonic top invariant mass</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-plots">More plots</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#btag-plots">btag plots</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-histograms-of-correlations">2D Histograms of correlations</a></li>
@@ -399,8 +405,15 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="plots-for-fully-matched-dataset">
-<h1>Plots for fully matched dataset<a class="headerlink" href="#plots-for-fully-matched-dataset" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
+<h1>Plots for fully matched dataset<a class="headerlink" href="#plots-for-fully-matched-dataset" title="Permalink to this headline">#</a></h1>
+<section id="initialise">
+<h2>Initialise<a class="headerlink" href="#initialise" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">h5py</span>
 <span class="kn">import</span> <span class="nn">awkward</span> <span class="k">as</span> <span class="nn">ak</span>
@@ -416,11 +429,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;./data/0903_output_v5_matched.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">df_input</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;./data/tth_matched_2.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;./SPANet/0903_output_v5_matched.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">df_input</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;./SPANet/data/tth_matched_2.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -478,8 +492,9 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
 <section id="higgs-invariant-mass">
-<h2>Higgs invariant mass<a class="headerlink" href="#higgs-invariant-mass" title="Permalink to this heading">#</a></h2>
+<h2>Higgs invariant mass<a class="headerlink" href="#higgs-invariant-mass" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H_b1_true</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">df_input</span><span class="p">[</span><span class="s2">&quot;TARGETS&quot;</span><span class="p">][</span><span class="s2">&quot;h&quot;</span><span class="p">][</span><span class="s2">&quot;b1&quot;</span><span class="p">][()])</span>
@@ -551,13 +566,19 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Length of higgs_jet_pred: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">higgs_jet_pred</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Length of higgs_jet_true: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">higgs_jet_true</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># same for fully matched</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Length of higgs_jet_pred: 67876
 Length of higgs_jet_true: 67876
@@ -565,7 +586,12 @@ Length of higgs_jet_true: 67876
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
          <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
@@ -578,13 +604,14 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/57a0971ffcf646e8e52212f5f9e4f1520753c3c3fc1d49e326d70c5a53fb7ffb.png" src="../_images/57a0971ffcf646e8e52212f5f9e4f1520753c3c3fc1d49e326d70c5a53fb7ffb.png" />
 </div>
 </div>
 </section>
 <section id="hadronic-top-invariant-mass">
-<h2>Hadronic top invariant mass<a class="headerlink" href="#hadronic-top-invariant-mass" title="Permalink to this heading">#</a></h2>
+<h2>Hadronic top invariant mass<a class="headerlink" href="#hadronic-top-invariant-mass" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t1_q1_pred</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;TARGETS&quot;</span><span class="p">][</span><span class="s2">&quot;t1&quot;</span><span class="p">][</span><span class="s2">&quot;q1&quot;</span><span class="p">][()])</span>
@@ -622,7 +649,12 @@ Length of higgs_jet_true: 67876
 <img alt="../_images/4b89851dbe7a2c64e63c8a8f230ba531eb3fb62fc8abfe1abce27d5ee1584ac7.png" src="../_images/4b89851dbe7a2c64e63c8a8f230ba531eb3fb62fc8abfe1abce27d5ee1584ac7.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">m</span><span class="p">,</span>
          <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
@@ -635,13 +667,14 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/046bc2581af65ef56ba43afc81b44c74ff7592d10128483125a8925fad8d5e5b.png" src="../_images/046bc2581af65ef56ba43afc81b44c74ff7592d10128483125a8925fad8d5e5b.png" />
 </div>
 </div>
 </section>
-<section id="leptonic-top">
-<h2>Leptonic top<a class="headerlink" href="#leptonic-top" title="Permalink to this heading">#</a></h2>
+<section id="leptonic-top-invariant-mass">
+<h2>Leptonic top invariant mass<a class="headerlink" href="#leptonic-top-invariant-mass" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t2_b_pred</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;TARGETS&quot;</span><span class="p">][</span><span class="s2">&quot;t2&quot;</span><span class="p">][</span><span class="s2">&quot;b&quot;</span><span class="p">][()])</span>
@@ -666,7 +699,12 @@ Length of higgs_jet_true: 67876
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leptop_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leptop_jet_pred</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;predicted&quot;</span><span class="p">)</span>
@@ -677,14 +715,20 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/83fb39bef52b4446b81645dd57e515562a9f3b39a7d29c463f72f2eb36ca756b.png" src="../_images/83fb39bef52b4446b81645dd57e515562a9f3b39a7d29c463f72f2eb36ca756b.png" />
 </div>
 </div>
 </section>
 <section id="more-plots">
-<h2>More plots<a class="headerlink" href="#more-plots" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
+<h2>More plots<a class="headerlink" href="#more-plots" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_m_pt_eta_phi</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -722,8 +766,14 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compare_m_pt_eta_phi</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     
@@ -771,48 +821,78 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_m_pt_eta_phi</span><span class="p">(</span><span class="n">higgs_jet_true</span><span class="p">,</span> <span class="s2">&quot;Higgs true&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/247e5b9d8e692645690d531d7677e27611eaa87543e4a546b36566c25568f9bd.png" src="../_images/247e5b9d8e692645690d531d7677e27611eaa87543e4a546b36566c25568f9bd.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_m_pt_eta_phi</span><span class="p">(</span><span class="n">higgs_jet_pred</span><span class="p">,</span> <span class="s2">&quot;Higgs predicted&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/ee1b69b6064577163f49425fbc299dcd60b574f27282244ade9322845cb3f3a7.png" src="../_images/ee1b69b6064577163f49425fbc299dcd60b574f27282244ade9322845cb3f3a7.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_m_pt_eta_phi</span><span class="p">(</span><span class="n">hadtop_jet_true</span><span class="p">,</span> <span class="s2">&quot;Hadronic top true&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/dbb4cffe01ce5f95fd9bb0c0d7e3bb8efdbdafec718483479f4fd28351c88193.png" src="../_images/dbb4cffe01ce5f95fd9bb0c0d7e3bb8efdbdafec718483479f4fd28351c88193.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_m_pt_eta_phi</span><span class="p">(</span><span class="n">hadtop_jet_pred</span><span class="p">,</span> <span class="s2">&quot;Hadronic top predicted&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/76b80777a28201be329bc8704c35a6e77830aec76c0babc9b97d389025313645.png" src="../_images/76b80777a28201be329bc8704c35a6e77830aec76c0babc9b97d389025313645.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axs</span> <span class="o">=</span> <span class="n">compare_m_pt_eta_phi</span><span class="p">(</span><span class="n">higgs_jet_pred</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Higgs&quot;</span><span class="p">)</span>
 <span class="n">compare_m_pt_eta_phi</span><span class="p">(</span><span class="n">higgs_jet_true</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span><span class="p">)</span>
@@ -822,11 +902,17 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/3a91e88e28565f18bbf92fc58b09307bb33e2b709318298e14389e8496940adf.png" src="../_images/3a91e88e28565f18bbf92fc58b09307bb33e2b709318298e14389e8496940adf.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axs</span> <span class="o">=</span> <span class="n">compare_m_pt_eta_phi</span><span class="p">(</span><span class="n">hadtop_jet_pred</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Hadronic top&quot;</span><span class="p">)</span>
 <span class="n">compare_m_pt_eta_phi</span><span class="p">(</span><span class="n">hadtop_jet_true</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span><span class="p">)</span>
@@ -836,11 +922,17 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/7d2b07899e0f3333bb8f4809f6bbaa904bb5c08beb6d495959548f2f7a199528.png" src="../_images/7d2b07899e0f3333bb8f4809f6bbaa904bb5c08beb6d495959548f2f7a199528.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axs</span> <span class="o">=</span> <span class="n">compare_m_pt_eta_phi</span><span class="p">(</span><span class="n">leptop_jet_pred</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Leptonic top&quot;</span><span class="p">)</span>
 <span class="n">compare_m_pt_eta_phi</span><span class="p">(</span><span class="n">leptop_jet_true</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span><span class="p">)</span>
@@ -850,14 +942,20 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/7a21266e87ef8cb4c567d28dee6fbca876d211e1645fabe00b74ef767f2c3cb9.png" src="../_images/7a21266e87ef8cb4c567d28dee6fbca876d211e1645fabe00b74ef767f2c3cb9.png" />
 </div>
 </div>
 </section>
 <section id="btag-plots">
-<h2>btag plots<a class="headerlink" href="#btag-plots" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
+<h2>btag plots<a class="headerlink" href="#btag-plots" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leptop_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">btag</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leptop_jet_pred</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">btag</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;predicted&quot;</span><span class="p">)</span>
@@ -868,11 +966,17 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/baf81823575d352e91937e10a6ae591fa6bb941bf6b5cd20fd11717337fb2d65.png" src="../_images/baf81823575d352e91937e10a6ae591fa6bb941bf6b5cd20fd11717337fb2d65.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">btag</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">hadtop_jet_pred</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">btag</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;predicted&quot;</span><span class="p">)</span>
@@ -897,13 +1001,19 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/1c638db2bde759743671f45e4c007ee19b4d414ba5cf29801bf8de10c7623f30.png" src="../_images/1c638db2bde759743671f45e4c007ee19b4d414ba5cf29801bf8de10c7623f30.png" />
 <img alt="../_images/39c2e578092c12dc6ced09e3d70843af41fece4cd0248550d1a9a14ee4980950.png" src="../_images/39c2e578092c12dc6ced09e3d70843af41fece4cd0248550d1a9a14ee4980950.png" />
 <img alt="../_images/cd48980470ba7d0ea994cab52a671e1a167fcbe422a0a7e24c97efbd495fb1f7.png" src="../_images/cd48980470ba7d0ea994cab52a671e1a167fcbe422a0a7e24c97efbd495fb1f7.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">btag</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">higgs_jet_pred</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">btag</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;predicted&quot;</span><span class="p">)</span>
@@ -921,6 +1031,7 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/b8f14cfd2f40d87a16b256c9121906615da225ee6995d185ccd0e7a16b84f902.png" src="../_images/b8f14cfd2f40d87a16b256c9121906615da225ee6995d185ccd0e7a16b84f902.png" />
 <img alt="../_images/b16ff53899cd74b989a3c5ba210f691cc71eb57d569aa7b288e4496f359af601.png" src="../_images/b16ff53899cd74b989a3c5ba210f691cc71eb57d569aa7b288e4496f359af601.png" />
@@ -928,8 +1039,13 @@ Length of higgs_jet_true: 67876
 </div>
 </section>
 <section id="d-histograms-of-correlations">
-<h2>2D Histograms of correlations<a class="headerlink" href="#d-histograms-of-correlations" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
+<h2>2D Histograms of correlations<a class="headerlink" href="#d-histograms-of-correlations" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_pt</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 <span class="n">second_pt</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
@@ -953,12 +1069,18 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/68e86faccd854dbb353100384c494dd55eaa7ca518fec854e98be0f2cc46cf8a.png" src="../_images/68e86faccd854dbb353100384c494dd55eaa7ca518fec854e98be0f2cc46cf8a.png" />
 <img alt="../_images/d1ea2178c71aee9a1e64a961ef38857c08a48b14d0e7cb08a4417144ce4a92ec.png" src="../_images/d1ea2178c71aee9a1e64a961ef38857c08a48b14d0e7cb08a4417144ce4a92ec.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 <span class="n">second_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
@@ -982,12 +1104,18 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/74d526cd081d1d7109f74a68a19680c23394042d4336d93364701eb8d09c4da3.png" src="../_images/74d526cd081d1d7109f74a68a19680c23394042d4336d93364701eb8d09c4da3.png" />
 <img alt="../_images/f332b1cd7b1ec558d28bc33723d21cffd90f1bf3f4c66f76a28f81301ccf87b2.png" src="../_images/f332b1cd7b1ec558d28bc33723d21cffd90f1bf3f4c66f76a28f81301ccf87b2.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_true_pt</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 <span class="n">second_true_pt</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
@@ -1011,11 +1139,17 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/8d2ea3383aa86ae90b1cb31478f5f6b69b1eef4e97218d55b7034accb644f1d9.png" src="../_images/8d2ea3383aa86ae90b1cb31478f5f6b69b1eef4e97218d55b7034accb644f1d9.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_true_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 <span class="n">second_true_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
@@ -1039,11 +1173,17 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/1ba2a006b85db9b2760ee8fb108e06b45f8f60a05426ca6820b8358ffdea584d.png" src="../_images/1ba2a006b85db9b2760ee8fb108e06b45f8f60a05426ca6820b8358ffdea584d.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">third_pred_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_pred</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
 <span class="n">third_true_pt</span> <span class="o">=</span> <span class="n">hadtop_jet_true</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span>
@@ -1056,6 +1196,7 @@ Length of higgs_jet_true: 67876
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/f4bb4bef9482e1683aa5fa8c1bc2a48946277f66bdd526fb2c68283c1719f59b.png" src="../_images/f4bb4bef9482e1683aa5fa8c1bc2a48946277f66bdd526fb2c68283c1719f59b.png" />
 </div>
@@ -1092,13 +1233,22 @@ Length of higgs_jet_true: 67876
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../intro.html"
+       href="JetTagging_InitialPlots.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+        <p class="prev-next-title">Parton matching</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="correct_vs_wrong.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Correct vs wrong pt distributions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -1115,9 +1265,10 @@ Length of higgs_jet_true: 67876
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialise">Initialise</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs-invariant-mass">Higgs invariant mass</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top-invariant-mass">Hadronic top invariant mass</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top-invariant-mass">Leptonic top invariant mass</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-plots">More plots</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#btag-plots">btag plots</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-histograms-of-correlations">2D Histograms of correlations</a></li>

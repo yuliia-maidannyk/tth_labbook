@@ -6,3 +6,5 @@ root: intro
 chapters:
 - file: docs/JetTagging_InitialPlots
 - file: docs/plots_v5_matched
+- file: docs/correct_vs_wrong
+- file: docs/efficiencies
