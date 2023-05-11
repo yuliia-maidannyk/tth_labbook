@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Fully matched efficiency plots &#8212; ttH Lab Book</title>
+    <title>Efficiency plots v5 &#8212; ttH Lab Book</title>
   
   
   
@@ -63,7 +63,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/efficiencies';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Correct vs wrong pt distributions" href="correct_vs_wrong.html" />
+    <link rel="next" title="CORRECT efficiency plots v5" href="efficiencies-0504.html" />
+    <link rel="prev" title="Correct vs wrong distributions 11/05" href="correct_vs_wrong_1105.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -155,14 +156,16 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="JetTagging_InitialPlots.html">Parton matching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InitialPlots.html">Plots from first week</a></li>
+<li class="toctree-l1"><a class="reference internal" href="predicted_vs_true.html">Initial plots for ttH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="correct_vs_wrong.html">Correct vs wrong distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="correct_vs_wrong_1105.html">Correct vs wrong distributions 11/05</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Efficiency plots v5</a></li>
 
-
-
-<li class="toctree-l1"><a class="reference internal" href="plots_v5_matched.html">Plots for fully matched dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="correct_vs_wrong.html">Correct vs wrong pt distributions</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fully matched efficiency plots</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="efficiencies-0504.html">CORRECT efficiency plots v5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="efficiencies-0505.html">Efficiency plots v49</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb0504.html">Probability, efficiency and <span class="math notranslate nohighlight">\(\Delta\)</span>R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb1005.html">Probability, efficiency and <span class="math notranslate nohighlight">\(\Delta\)</span>R</a></li>
 </ul>
 
     </div>
@@ -377,7 +380,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fully matched efficiency plots</h1>
+    <h1>Efficiency plots v5</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,11 +390,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Fully matched efficiency plots</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Efficiency plots v5</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialise">Initialise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs">Higgs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top">Hadronic top</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top-efficiency-by-njets">Leptonic top efficiency by njets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs-efficiency-by-njets">Higgs efficiency by njets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top-efficiency-by-njets">Hadronic top efficiency by njets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#all-efficiencies">All efficiencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs-efficiency-by-higgs-pt">Higgs efficiency by Higgs pt</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs-efficiency-by-higgs-eta">Higgs efficiency by Higgs eta</a></li>
@@ -402,8 +405,8 @@ document.write(`
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#full-dataset-efficiency-plots">Full dataset efficiency plots</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Initialise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Leptonic top</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Higgs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs">Higgs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignore">Ignore</a></li>
 </ul>
 </li>
@@ -419,8 +422,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fully-matched-efficiency-plots">
-<h1>Fully matched efficiency plots<a class="headerlink" href="#fully-matched-efficiency-plots" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="efficiency-plots-v5">
+<h1>Efficiency plots v5<a class="headerlink" href="#efficiency-plots-v5" title="Permalink to this headline">#</a></h1>
+<p>This NB is incorrect because it uses the wrong version of the fully matched dataset.</p>
+<p>In this NB I use v5 of the training (shallow, 20 epochs) to plot:</p>
+<ul class="simple">
+<li><p>Effiency by the total number of jets in the event</p></li>
+<li><p>Efficiencies of ttH together by njets</p></li>
+<li><p>Efficiency by pt of the particle (normal binning only)</p></li>
+<li><p>Efficiency by eta for the Higgs only</p></li>
+<li><p>Efficiency by pt for b1 and b2 of the Higgs</p></li>
+<li><p>An attempt at doing efficiency plots for the full dataset</p></li>
+</ul>
 <section id="initialise">
 <h2>Initialise<a class="headerlink" href="#initialise" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_hide-input docutils container">
@@ -640,8 +653,8 @@ document.write(`
 <p><img alt="matched_purities_v5.png" src="docs/attachment:matched_purities_v5.png" /></p>
 <p><img alt="matched_purities_v5.png" src="../_images/matched_purities_v5.png" /></p>
 </section>
-<section id="leptonic-top">
-<h2>Leptonic top<a class="headerlink" href="#leptonic-top" title="Permalink to this headline">#</a></h2>
+<section id="leptonic-top-efficiency-by-njets">
+<h2>Leptonic top efficiency by njets<a class="headerlink" href="#leptonic-top-efficiency-by-njets" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -707,8 +720,8 @@ all-jet efficiency is 0.580
 </div>
 </div>
 </section>
-<section id="higgs">
-<h2>Higgs<a class="headerlink" href="#higgs" title="Permalink to this headline">#</a></h2>
+<section id="higgs-efficiency-by-njets">
+<h2>Higgs efficiency by njets<a class="headerlink" href="#higgs-efficiency-by-njets" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -774,8 +787,8 @@ all-jet efficiency is 0.456
 </div>
 </div>
 </section>
-<section id="hadronic-top">
-<h2>Hadronic top<a class="headerlink" href="#hadronic-top" title="Permalink to this headline">#</a></h2>
+<section id="hadronic-top-efficiency-by-njets">
+<h2>Hadronic top efficiency by njets<a class="headerlink" href="#hadronic-top-efficiency-by-njets" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -2025,8 +2038,8 @@ Name: pt_bin, dtype: int64
 </div>
 </div>
 </section>
-<section id="id2">
-<h2>Leptonic top<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<section id="leptonic-top">
+<h2>Leptonic top<a class="headerlink" href="#leptonic-top" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_leptop_arrays</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">njets</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;partial&quot;</span><span class="p">):</span>
@@ -2426,8 +2439,8 @@ Total within 4 jets is 98808
 </div>
 </div>
 </section>
-<section id="id3">
-<h2>Higgs<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<section id="higgs">
+<h2>Higgs<a class="headerlink" href="#higgs" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">purities</span> <span class="o">=</span> <span class="p">[]</span>
@@ -3229,13 +3242,22 @@ Total within 15 jets is 2
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="correct_vs_wrong.html"
+       href="correct_vs_wrong_1105.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Correct vs wrong pt distributions</p>
+        <p class="prev-next-title">Correct vs wrong distributions 11/05</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="efficiencies-0504.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">CORRECT efficiency plots v5</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -3252,11 +3274,11 @@ Total within 15 jets is 2
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Fully matched efficiency plots</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Efficiency plots v5</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialise">Initialise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs">Higgs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top">Hadronic top</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top-efficiency-by-njets">Leptonic top efficiency by njets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs-efficiency-by-njets">Higgs efficiency by njets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top-efficiency-by-njets">Hadronic top efficiency by njets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#all-efficiencies">All efficiencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs-efficiency-by-higgs-pt">Higgs efficiency by Higgs pt</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs-efficiency-by-higgs-eta">Higgs efficiency by Higgs eta</a></li>
@@ -3267,8 +3289,8 @@ Total within 15 jets is 2
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#full-dataset-efficiency-plots">Full dataset efficiency plots</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Initialise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Leptonic top</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Higgs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs">Higgs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignore">Ignore</a></li>
 </ul>
 </li>
