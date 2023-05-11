@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Correct vs wrong pt distributions &#8212; ttH Lab Book</title>
+    <title>Correct vs wrong distributions &#8212; ttH Lab Book</title>
   
   
   
@@ -63,7 +63,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/correct_vs_wrong';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Plots for fully matched dataset" href="plots_v5_matched.html" />
+    <link rel="next" title="Fully matched efficiency plots" href="efficiencies.html" />
+    <link rel="prev" title="Initial plots for ttH" href="predicted_vs_true.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -159,8 +160,12 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="plots_v5_matched.html">Plots for fully matched dataset</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Correct vs wrong pt distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="predicted_vs_true.html">Initial plots for ttH</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Correct vs wrong distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="efficiencies.html">Fully matched efficiency plots</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="efficiencies-0504.html">CORRECT matched efficiency plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb0504.html">Probability, efficiency and <span class="math notranslate nohighlight">\(\Delta\)</span>R</a></li>
 </ul>
 
     </div>
@@ -375,7 +380,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Correct vs wrong pt distributions</h1>
+    <h1>Correct vs wrong distributions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -385,9 +390,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top">Hadronic top</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs">Higgs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialise">Initialise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correct-vs-wrong-pt-distributions">Correct vs wrong pt distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top">Hadronic top</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs">Higgs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correct-vs-wrong-higgs-mass">Correct vs wrong Higgs mass</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correct-vs-wrong-by-higgs-quark-pt">Correct vs wrong by Higgs quark pt</a></li>
 </ul>
             </nav>
         </div>
@@ -399,7 +410,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="cell tag_hide-input docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="correct-vs-wrong-distributions">
+<h1>Correct vs wrong distributions<a class="headerlink" href="#correct-vs-wrong-distributions" title="Permalink to this headline">#</a></h1>
+<p>In this NB I plot:</p>
+<ul class="simple">
+<li><p>A comparison between correctly predicted pt’s and wrongly predicted pt’s of ttH</p></li>
+<li><p>The same for the mass of the Higgs (it’s the worst reconstructed out of ttH)</p></li>
+<li><p>Correctly vs wrongly predicted pt’s of b1 and b2 of the Higgs</p></li>
+</ul>
+<section id="initialise">
+<h2>Initialise<a class="headerlink" href="#initialise" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
@@ -422,11 +443,10 @@ document.write(`
 </div>
 </details>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialise</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;./SPANet/0903_output_v5_matched.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">df_input</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;./SPANet/data/tth_matched_2.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;./SPANet/predictions/0405_output_v49_matched.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">df_input</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;./SPANet/data/tth_matched_3.h5&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span><span class="s1">&#39;eta&#39;</span><span class="p">,</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span><span class="s1">&#39;btag&#39;</span><span class="p">]</span>
 <span class="n">jets</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">zip</span><span class="p">({</span>
     <span class="n">f</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;INPUTS&quot;</span><span class="p">][</span><span class="s2">&quot;Source&quot;</span><span class="p">][</span><span class="n">f</span><span class="p">][()]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span>
@@ -436,6 +456,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;pt&#39;: 141.5,
   &#39;eta&#39;: 1.500244140625,
@@ -467,12 +492,25 @@ document.write(`
   &#39;phi&#39;: 3.0244140625,
   &#39;btag&#39;: 0.998046875,
   &#39;m&#39;: 0.0},
+ {&#39;pt&#39;: 0.0, &#39;eta&#39;: 0.0, &#39;phi&#39;: 0.0, &#39;btag&#39;: 0.0, &#39;m&#39;: 0.0},
+ {&#39;pt&#39;: 0.0, &#39;eta&#39;: 0.0, &#39;phi&#39;: 0.0, &#39;btag&#39;: 0.0, &#39;m&#39;: 0.0},
+ {&#39;pt&#39;: 0.0, &#39;eta&#39;: 0.0, &#39;phi&#39;: 0.0, &#39;btag&#39;: 0.0, &#39;m&#39;: 0.0},
+ {&#39;pt&#39;: 0.0, &#39;eta&#39;: 0.0, &#39;phi&#39;: 0.0, &#39;btag&#39;: 0.0, &#39;m&#39;: 0.0},
+ {&#39;pt&#39;: 0.0, &#39;eta&#39;: 0.0, &#39;phi&#39;: 0.0, &#39;btag&#39;: 0.0, &#39;m&#39;: 0.0},
+ {&#39;pt&#39;: 0.0, &#39;eta&#39;: 0.0, &#39;phi&#39;: 0.0, &#39;btag&#39;: 0.0, &#39;m&#39;: 0.0},
+ {&#39;pt&#39;: 0.0, &#39;eta&#39;: 0.0, &#39;phi&#39;: 0.0, &#39;btag&#39;: 0.0, &#39;m&#39;: 0.0},
  {&#39;pt&#39;: 0.0, &#39;eta&#39;: 0.0, &#39;phi&#39;: 0.0, &#39;btag&#39;: 0.0, &#39;m&#39;: 0.0}]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Higgs jets</span>
 <span class="n">H_b1_true</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">df_input</span><span class="p">[</span><span class="s2">&quot;TARGETS&quot;</span><span class="p">][</span><span class="s2">&quot;h&quot;</span><span class="p">][</span><span class="s2">&quot;b1&quot;</span><span class="p">][()])</span>
@@ -531,12 +569,19 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
+</section>
 <section id="correct-vs-wrong-pt-distributions">
-<h1>Correct vs wrong pt distributions<a class="headerlink" href="#correct-vs-wrong-pt-distributions" title="Permalink to this headline">#</a></h1>
+<h2>Correct vs wrong pt distributions<a class="headerlink" href="#correct-vs-wrong-pt-distributions" title="Permalink to this headline">#</a></h2>
 <section id="leptonic-top">
-<h2>Leptonic top<a class="headerlink" href="#leptonic-top" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
+<h3>Leptonic top<a class="headerlink" href="#leptonic-top" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">leptop_jet_true</span> <span class="o">==</span> <span class="n">leptop_jet_pred</span><span class="p">)</span>
 <span class="n">leptop_pred_correct</span> <span class="o">=</span> <span class="n">leptop_jet_pred</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="c1"># correctly predicted jets</span>
@@ -548,6 +593,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -563,8 +609,8 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of correctly predicted is 39390
-Number of wrongly predicted is 28486
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of correctly predicted is 42673
+Number of wrongly predicted is 25203
 </pre></div>
 </div>
 </div>
@@ -587,7 +633,7 @@ Number of wrongly predicted is 28486
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/4f1bb6851af85899c036a6c5d256983c543ca2dae00dd2a7f15615e27d224a1c.png" src="../_images/4f1bb6851af85899c036a6c5d256983c543ca2dae00dd2a7f15615e27d224a1c.png" />
+<img alt="../_images/bc3a4a3c75d7f3e4f9bab75fdbdcda28823c21c3af77ad3a3e5060d06080408c.png" src="../_images/bc3a4a3c75d7f3e4f9bab75fdbdcda28823c21c3af77ad3a3e5060d06080408c.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -598,28 +644,36 @@ Number of wrongly predicted is 28486
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalised by setting density=True</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leptop_pred_correct</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leptop_pred_wrong</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leptop_pred_correct</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span>
+         <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leptop_pred_wrong</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span>
+         <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;correct&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong&quot;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Leptonic top (normalised)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;b pt&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Leptonic top (normalised)&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;b predicted pt&quot;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.002</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.0005</span><span class="p">))</span>
+
+<span class="c1">#plt.show()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.facecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;./efficiency_plots/t2_corr_vs_wrong_pt.png&quot;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+            <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/e4850097f31a97e43596fd0641542825999dfce4bac0b6a4395cd707cd83faa6.png" src="../_images/e4850097f31a97e43596fd0641542825999dfce4bac0b6a4395cd707cd83faa6.png" />
+<img alt="../_images/e56d5d0d57913feb371af89e58db8803b5e3ff571e3a8501ba9454ec32782a89.png" src="../_images/e56d5d0d57913feb371af89e58db8803b5e3ff571e3a8501ba9454ec32782a89.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">leptop_jet_true</span> <span class="o">==</span> <span class="n">leptop_jet_pred</span><span class="p">)</span>
-<span class="n">leptop_true_correct</span> <span class="o">=</span> <span class="n">leptop_jet_true</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> 
-<span class="n">leptop_true_wrong</span> <span class="o">=</span> <span class="n">leptop_jet_true</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span> 
-
-<span class="n">leptop_true_correct</span> <span class="o">=</span> <span class="n">leptop_true_correct</span><span class="p">[</span><span class="n">ak</span><span class="o">.</span><span class="n">num</span><span class="p">(</span><span class="n">leptop_true_correct</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">leptop_true_wrong</span> <span class="o">=</span> <span class="n">leptop_true_wrong</span><span class="p">[</span><span class="n">ak</span><span class="o">.</span><span class="n">num</span><span class="p">(</span><span class="n">leptop_true_wrong</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Below is for &quot;b true pt&quot; plots</span>
 </pre></div>
 </div>
 </div>
@@ -631,6 +685,24 @@ Number of wrongly predicted is 28486
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">leptop_jet_true</span> <span class="o">==</span> <span class="n">leptop_jet_pred</span><span class="p">)</span>
+<span class="n">leptop_true_correct</span> <span class="o">=</span> <span class="n">leptop_jet_true</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> 
+<span class="n">leptop_true_wrong</span> <span class="o">=</span> <span class="n">leptop_jet_true</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span> 
+
+<span class="n">leptop_true_correct</span> <span class="o">=</span> <span class="n">leptop_true_correct</span><span class="p">[</span><span class="n">ak</span><span class="o">.</span><span class="n">num</span><span class="p">(</span><span class="n">leptop_true_correct</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">leptop_true_wrong</span> <span class="o">=</span> <span class="n">leptop_true_wrong</span><span class="p">[</span><span class="n">ak</span><span class="o">.</span><span class="n">num</span><span class="p">(</span><span class="n">leptop_true_wrong</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leptop_true_correct</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leptop_true_wrong</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;correct&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong&quot;</span><span class="p">])</span>
@@ -649,15 +721,26 @@ Number of wrongly predicted is 28486
 </div>
 </div>
 </details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
-<img alt="../_images/b9c76a378880bedd4429598291c61d5280d256d3872e3cfba6cf4c98d9875d32.png" src="../_images/b9c76a378880bedd4429598291c61d5280d256d3872e3cfba6cf4c98d9875d32.png" />
-<img alt="../_images/59696d9e20d473717549bc4fef9afaa896c818c203fee1e3408d8bd17b06379c.png" src="../_images/59696d9e20d473717549bc4fef9afaa896c818c203fee1e3408d8bd17b06379c.png" />
+<img alt="../_images/e920e03155df6c2ad98298be51c24dff8249c425d67d1623ffda74db9fdc5fa5.png" src="../_images/e920e03155df6c2ad98298be51c24dff8249c425d67d1623ffda74db9fdc5fa5.png" />
+<img alt="../_images/7e1fd23d1eca339a4bd61b30add958b2f993b24accb9b85e0e797fe773623cfa.png" src="../_images/7e1fd23d1eca339a4bd61b30add958b2f993b24accb9b85e0e797fe773623cfa.png" />
 </div>
+</details>
 </div>
 </section>
 <section id="hadronic-top">
-<h2>Hadronic top<a class="headerlink" href="#hadronic-top" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
+<h3>Hadronic top<a class="headerlink" href="#hadronic-top" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">hadtop_jet_true</span> <span class="o">==</span> <span class="n">hadtop_jet_pred</span><span class="p">)</span>
 <span class="n">hadtop_pred_correct</span> <span class="o">=</span> <span class="n">hadtop_jet_pred</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> 
@@ -672,6 +755,7 @@ Number of wrongly predicted is 28486
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -692,12 +776,12 @@ Number of wrongly predicted is 28486
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of correctly predicted is 40870
-Number of wrongly predicted is 27006
-Number of 3 jets wrongly predicted is 4213
-Number of 2 jets wrongly predicted is 6569
-Number of 1 jet wrongly predicted is 16224
-27006
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of correctly predicted is 41014
+Number of wrongly predicted is 26862
+Number of 3 jets wrongly predicted is 4983
+Number of 2 jets wrongly predicted is 7013
+Number of 1 jet wrongly predicted is 14866
+26862
 </pre></div>
 </div>
 </div>
@@ -710,13 +794,13 @@ Number of 1 jet wrongly predicted is 16224
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">hadtop_pred_correct</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_pred_correct</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_pred_correct</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
-          <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
+          <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">hadtop_pred_wrong_3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_pred_wrong_3</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_pred_wrong_3</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
-         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
+         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">hadtop_pred_wrong_2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_pred_wrong_2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
-         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
+         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">hadtop_pred_wrong_1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
-         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
+         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;correct&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong (3 jets)&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong (2 jets)&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong (1 jet)&quot;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Hadronic top&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span>
@@ -726,7 +810,7 @@ Number of 1 jet wrongly predicted is 16224
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/d9f67e4b1102e40c8845d35ca379cf249baa3865004a9715abf73bb13ae27550.png" src="../_images/d9f67e4b1102e40c8845d35ca379cf249baa3865004a9715abf73bb13ae27550.png" />
+<img alt="../_images/8e65e181b9ec9f9c66958bb9f32d60c65e53371f64c06f085a87f59b42aa39b8.png" src="../_images/8e65e181b9ec9f9c66958bb9f32d60c65e53371f64c06f085a87f59b42aa39b8.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -737,32 +821,55 @@ Number of 1 jet wrongly predicted is 16224
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalised by setting density=True</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
 <span class="n">hadtop_pred_wrong_3</span> <span class="o">=</span> <span class="n">hadtop_pred_wrong</span><span class="p">[</span><span class="n">ak</span><span class="o">.</span><span class="n">num</span><span class="p">(</span><span class="n">hadtop_pred_wrong</span><span class="p">)</span><span class="o">==</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">hadtop_pred_wrong_2</span> <span class="o">=</span> <span class="n">hadtop_pred_wrong</span><span class="p">[</span><span class="n">ak</span><span class="o">.</span><span class="n">num</span><span class="p">(</span><span class="n">hadtop_pred_wrong</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">hadtop_pred_wrong_1</span> <span class="o">=</span> <span class="n">hadtop_pred_wrong</span><span class="p">[</span><span class="n">ak</span><span class="o">.</span><span class="n">num</span><span class="p">(</span><span class="n">hadtop_pred_wrong</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">hadtop_pred_correct</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_pred_correct</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_pred_correct</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
-          <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+          <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">hadtop_pred_wrong_3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_pred_wrong_3</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_pred_wrong_3</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
-         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">hadtop_pred_wrong_2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_pred_wrong_2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
-         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">hadtop_pred_wrong_1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
-         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;correct&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong (3 jets)&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong (2 jets)&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong (1 jet)&quot;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Hadronic top (normalised)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;3 jets correct&quot;</span><span class="p">,</span> <span class="s2">&quot;3 jets wrong&quot;</span><span class="p">,</span> <span class="s2">&quot;2 jets wrong&quot;</span><span class="p">,</span> <span class="s2">&quot;1 jet wrong&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Hadronic top (normalised)&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;predicted pt&quot;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.002</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.0005</span><span class="p">))</span>
+
+<span class="c1">#plt.show()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.facecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;./efficiency_plots/t1_corr_vs_wrong_pt.png&quot;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+            <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/3bddd68033c72d6af6b1a6e7ea4e3ce405d00f1d4b4ee45909ffaf85eb6d3c9a.png" src="../_images/3bddd68033c72d6af6b1a6e7ea4e3ce405d00f1d4b4ee45909ffaf85eb6d3c9a.png" />
+<img alt="../_images/58e8a3d0eae5c8d071e442bc94cf753a3a7438716920c1b3afc22d9c6a4a64ea.png" src="../_images/58e8a3d0eae5c8d071e442bc94cf753a3a7438716920c1b3afc22d9c6a4a64ea.png" />
 </div>
 </div>
 <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Below is for &quot;true pt&quot; plots</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">hadtop_jet_true</span> <span class="o">==</span> <span class="n">hadtop_jet_pred</span><span class="p">)</span>
 <span class="n">hadtop_true_correct</span> <span class="o">=</span> <span class="n">hadtop_jet_true</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> 
@@ -777,14 +884,15 @@ Number of 1 jet wrongly predicted is 16224
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell tag_hide-input tag_hide-output docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
 <span class="expanded">Hide code cell source</span>
 </summary>
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">hadtop_true_correct</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_true_correct</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_true_correct</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
           <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">hadtop_true_wrong_3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_true_wrong_3</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">hadtop_true_wrong_3</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
@@ -817,15 +925,26 @@ Number of 1 jet wrongly predicted is 16224
 </div>
 </div>
 </details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
-<img alt="../_images/98f045d5ad979a003ea2bf7848995382e0a9571fac456623b1a4f9be5060fc95.png" src="../_images/98f045d5ad979a003ea2bf7848995382e0a9571fac456623b1a4f9be5060fc95.png" />
-<img alt="../_images/6f93e3bf9b8537d92501cb8eb4414d46682ba754adbde9bf709748935d4cc16f.png" src="../_images/6f93e3bf9b8537d92501cb8eb4414d46682ba754adbde9bf709748935d4cc16f.png" />
+<img alt="../_images/e4b126f93e28c6f72d6d024b931609fa9675e92694b32960d5578befca6d2967.png" src="../_images/e4b126f93e28c6f72d6d024b931609fa9675e92694b32960d5578befca6d2967.png" />
+<img alt="../_images/701891e4d1af7ceabcdaa53ca4def4250fcbd034e5e98b5a755e5fffa462e01a.png" src="../_images/701891e4d1af7ceabcdaa53ca4def4250fcbd034e5e98b5a755e5fffa462e01a.png" />
 </div>
+</details>
 </div>
 </section>
 <section id="higgs">
-<h2>Higgs<a class="headerlink" href="#higgs" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
+<h3>Higgs<a class="headerlink" href="#higgs" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">higgs_jet_true</span> <span class="o">==</span> <span class="n">higgs_jet_pred</span><span class="p">)</span>
 <span class="n">higgs_pred_correct</span> <span class="o">=</span> <span class="n">higgs_jet_pred</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> 
@@ -839,6 +958,7 @@ Number of 1 jet wrongly predicted is 16224
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -857,10 +977,10 @@ Number of 1 jet wrongly predicted is 16224
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of correctly predicted is 30947
-Number of wrongly predicted is 36929
-Number of 2 jets wrongly predicted is 15389
-Number of 1 jet wrongly predicted is 21540
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of correctly predicted is 35207
+Number of wrongly predicted is 32669
+Number of 2 jets wrongly predicted is 14129
+Number of 1 jet wrongly predicted is 18540
 </pre></div>
 </div>
 </div>
@@ -887,7 +1007,7 @@ Number of 1 jet wrongly predicted is 21540
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/75ed70a78a9e0872b1edbeed9f64ae797448ed65b979e91c218afa6c2ff87469.png" src="../_images/75ed70a78a9e0872b1edbeed9f64ae797448ed65b979e91c218afa6c2ff87469.png" />
+<img alt="../_images/0d51e0b4e24b519cdd9bb847fa4e537e37fbeca4b788248a50c23bc449005894.png" src="../_images/0d51e0b4e24b519cdd9bb847fa4e537e37fbeca4b788248a50c23bc449005894.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -899,24 +1019,46 @@ Number of 1 jet wrongly predicted is 21540
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalised with density=True</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_pred_correct</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_pred_correct</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
-          <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+          <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_pred_wrong_2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_pred_wrong_2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
-         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_pred_wrong_1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_pred_wrong_1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span>
+         <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;correct&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong (2 jets)&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong (1 jet)&quot;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Higgs (normalised)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;2 jets correct&quot;</span><span class="p">,</span> <span class="s2">&quot;2 jets wrong&quot;</span><span class="p">,</span> <span class="s2">&quot;1 jet wrong&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Higgs (normalised)&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;predicted pt&quot;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.002</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.0005</span><span class="p">))</span>
+
+<span class="c1">#plt.show()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.facecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;./efficiency_plots/h_corr_vs_wrong_pt.png&quot;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+            <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/261467b2cf309fdb20bba8806ecde658e8bf75a556874643f46db79b28d38598.png" src="../_images/261467b2cf309fdb20bba8806ecde658e8bf75a556874643f46db79b28d38598.png" />
+<img alt="../_images/29cfc2409a619a931dd28cd86002626b12d1899840d13c6ca4f6c0191ba06f81.png" src="../_images/29cfc2409a619a931dd28cd86002626b12d1899840d13c6ca4f6c0191ba06f81.png" />
 </div>
 </div>
 <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Below is for &quot;true pt&quot; plots</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">higgs_jet_true</span> <span class="o">==</span> <span class="n">higgs_jet_pred</span><span class="p">)</span>
 <span class="n">higgs_true_correct</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="c1"># correctly assigned jets </span>
@@ -930,26 +1072,15 @@ Number of 1 jet wrongly predicted is 21540
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Expected to be the same</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_true_correct</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">higgs_true_correct</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_pred_correct</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">higgs_pred_correct</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/8d7ecfd744da1aa00b841e1459c6815ac00ec9872a24028b0af8a49d025c8c40.png" src="../_images/8d7ecfd744da1aa00b841e1459c6815ac00ec9872a24028b0af8a49d025c8c40.png" />
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell tag_hide-input tag_hide-output docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
 <span class="expanded">Hide code cell source</span>
 </summary>
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_true_correct</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_true_correct</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
           <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_true_wrong_2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_true_wrong_2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
@@ -964,17 +1095,23 @@ Number of 1 jet wrongly predicted is 21540
 </div>
 </div>
 </details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <img alt="../_images/a717024cd9af3a73260e20c0e0a50451a97fa64c0659e52adc02e6f975e6400d.png" src="../_images/a717024cd9af3a73260e20c0e0a50451a97fa64c0659e52adc02e6f975e6400d.png" />
 </div>
+</details>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell tag_hide-input tag_hide-output docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
 <span class="expanded">Hide code cell source</span>
 </summary>
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalised with density=True</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_true_correct</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_true_correct</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span>
           <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -990,50 +1127,23 @@ Number of 1 jet wrongly predicted is 21540
 </div>
 </div>
 </details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <img alt="../_images/38968a989b12c1265bce0b222196b557e64405015c793cc22db17e42510e6754.png" src="../_images/38968a989b12c1265bce0b222196b557e64405015c793cc22db17e42510e6754.png" />
 </div>
+</details>
 </div>
+</section>
+</section>
+<section id="correct-vs-wrong-higgs-mass">
+<h2>Correct vs wrong Higgs mass<a class="headerlink" href="#correct-vs-wrong-higgs-mass" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">higgs_pred_wrong</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;pt&#39;: 81.0625,
-  &#39;eta&#39;: -0.003124237060546875,
-  &#39;phi&#39;: 0.22100830078125,
-  &#39;btag&#39;: 0.966796875,
-  &#39;m&#39;: 0.0}]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">higgs_true_wrong</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;pt&#39;: 345.75,
-  &#39;eta&#39;: 0.130615234375,
-  &#39;phi&#39;: 2.41259765625,
-  &#39;btag&#39;: 0.99853515625,
-  &#39;m&#39;: 0.0}]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H_b1_true</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">H_b1_pred</span> <span class="o">=</span> <span class="n">higgs_jet_pred</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-
-<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">H_b1_true</span> <span class="o">==</span> <span class="n">H_b1_pred</span><span class="p">)</span> <span class="c1"># correct b1 jets</span>
-<span class="n">H_b1_true_correct</span> <span class="o">=</span> <span class="n">H_b1_true</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="c1"># correctly assigned jets </span>
-<span class="n">H_b1_true_wrong</span> <span class="o">=</span> <span class="n">H_b1_true</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span> <span class="c1"># the jets that we were supposed to get but didn&#39;t</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot Higgs mass by correctly predicted vs wrongly predicted</span>
 </pre></div>
 </div>
 </div>
@@ -1045,17 +1155,128 @@ Number of 1 jet wrongly predicted is 21540
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of correctly predicted is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">hadtop_pred_correct</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of wrongly predicted is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">hadtop_pred_wrong</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalised with density=True</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_pred_correct</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_pred_correct</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">m</span><span class="p">,</span>
+          <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of 3 jets wrongly predicted is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">hadtop_pred_wrong_3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of 2 jets wrongly predicted is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">hadtop_pred_wrong_2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of 1 jet wrongly predicted is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">hadtop_pred_wrong_1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hadtop_pred_wrong_3</span><span class="p">)</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">hadtop_pred_wrong_2</span><span class="p">)</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">hadtop_pred_wrong_1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_pred_wrong_2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_pred_wrong_2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">m</span><span class="p">,</span>
+         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;2 jets correct&quot;</span><span class="p">,</span> <span class="s2">&quot;2 jets wrong&quot;</span><span class="p">,</span> <span class="s2">&quot;1 jet wrong&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Higgs (normalised)&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;predicted mass&quot;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.002</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.0005</span><span class="p">))</span>
+
+<span class="c1">#plt.show()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.facecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;./efficiency_plots/h_corr_vs_wrong_mass.png&quot;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+            <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<img alt="../_images/7dfcddea7a760bc37180b7cbe2e49d376a30c9f4082e6d29bf90a3b2506e1e2a.png" src="../_images/7dfcddea7a760bc37180b7cbe2e49d376a30c9f4082e6d29bf90a3b2506e1e2a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot Higgs mass by predicted vs true</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H_b1_true</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">df_input</span><span class="p">[</span><span class="s2">&quot;TARGETS&quot;</span><span class="p">][</span><span class="s2">&quot;h&quot;</span><span class="p">][</span><span class="s2">&quot;b1&quot;</span><span class="p">][()])</span>
+<span class="n">H_b2_true</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">df_input</span><span class="p">[</span><span class="s2">&quot;TARGETS&quot;</span><span class="p">][</span><span class="s2">&quot;h&quot;</span><span class="p">][</span><span class="s2">&quot;b2&quot;</span><span class="p">][()])</span>
+
+<span class="c1"># Trick to make it a var-formatted array with 1 element per row</span>
+<span class="n">H_b1_true</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">unflatten</span><span class="p">(</span><span class="n">H_b1_true</span><span class="p">,</span> <span class="n">ak</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">H_b1_true</span><span class="p">))</span>
+<span class="n">H_b2_true</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">unflatten</span><span class="p">(</span><span class="n">H_b2_true</span><span class="p">,</span> <span class="n">ak</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">H_b2_true</span><span class="p">))</span>
+
+<span class="n">higgs_index_true</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">H_b1_true</span><span class="p">,</span> <span class="n">H_b2_true</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">higgs_jet_true</span> <span class="o">=</span> <span class="n">jets</span><span class="p">[</span><span class="n">higgs_index_true</span><span class="p">]</span>
+
+<span class="n">H_b1_pred</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;TARGETS&quot;</span><span class="p">][</span><span class="s2">&quot;h&quot;</span><span class="p">][</span><span class="s2">&quot;b1&quot;</span><span class="p">][()])</span>
+<span class="n">H_b2_pred</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;TARGETS&quot;</span><span class="p">][</span><span class="s2">&quot;h&quot;</span><span class="p">][</span><span class="s2">&quot;b2&quot;</span><span class="p">][()])</span>
+
+<span class="c1"># Trick to make it a var-formatted array with 1 element per row</span>
+<span class="n">H_b1_pred</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">unflatten</span><span class="p">(</span><span class="n">H_b1_pred</span><span class="p">,</span> <span class="n">ak</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">H_b1_pred</span><span class="p">))</span>
+<span class="n">H_b2_pred</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">unflatten</span><span class="p">(</span><span class="n">H_b2_pred</span><span class="p">,</span> <span class="n">ak</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">H_b2_pred</span><span class="p">))</span>
+
+<span class="n">higgs_index_pred</span> <span class="o">=</span> <span class="n">ak</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">H_b1_pred</span><span class="p">,</span> <span class="n">H_b2_pred</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">higgs_jet_pred</span> <span class="o">=</span> <span class="n">jets</span><span class="p">[</span><span class="n">higgs_index_pred</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalised with density=True</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">m</span><span class="p">,</span>
+          <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">higgs_jet_pred</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_jet_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">m</span><span class="p">,</span>
+         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="s2">&quot;predicted&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Higgs (normalised)&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;predicted mass&quot;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.002</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.0005</span><span class="p">))</span>
+
+<span class="c1">#plt.show()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.facecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;./efficiency_plots/h_m.png&quot;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+            <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/8ee674502d4a62d695a1538d62765f88d375a3a29d076b316470bf0ec153f897.png" src="../_images/8ee674502d4a62d695a1538d62765f88d375a3a29d076b316470bf0ec153f897.png" />
+</div>
+</div>
+</section>
+<section id="correct-vs-wrong-by-higgs-quark-pt">
+<h2>Correct vs wrong by Higgs quark pt<a class="headerlink" href="#correct-vs-wrong-by-higgs-quark-pt" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H_b1_true</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">H_b1_pred</span> <span class="o">=</span> <span class="n">higgs_jet_pred</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">H_b1_true</span> <span class="o">==</span> <span class="n">H_b1_pred</span><span class="p">)</span> <span class="c1"># correct b1 jets</span>
+<span class="n">H_b1_true_correct</span> <span class="o">=</span> <span class="n">H_b1_true</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="c1"># correctly assigned jets </span>
+<span class="n">H_b1_true_wrong</span> <span class="o">=</span> <span class="n">H_b1_true</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span> <span class="c1"># the jets that we were supposed to get but didn&#39;t</span>
+
+<span class="n">H_b2_true</span> <span class="o">=</span> <span class="n">higgs_jet_true</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">H_b2_pred</span> <span class="o">=</span> <span class="n">higgs_jet_pred</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">H_b2_true</span> <span class="o">==</span> <span class="n">H_b2_pred</span><span class="p">)</span> <span class="c1"># correct b1 jets</span>
+<span class="n">H_b2_true_correct</span> <span class="o">=</span> <span class="n">H_b2_true</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="c1"># correctly assigned jets </span>
+<span class="n">H_b2_true_wrong</span> <span class="o">=</span> <span class="n">H_b2_true</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span> <span class="c1"># the jets that we were supposed to get but didn&#39;t</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1071,8 +1292,8 @@ Number of 1 jet wrongly predicted is 21540
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">H_b1_true_correct</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">H_b1_true_wrong</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">H_b1_true_correct</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">H_b1_true_wrong</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;correct&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong&quot;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Higgs b1&quot;</span><span class="p">)</span>
@@ -1083,7 +1304,7 @@ Number of 1 jet wrongly predicted is 21540
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/03db00f72254494a15d1e6aa9845915383e50f5a28d4d24709f80c28262f182b.png" src="../_images/03db00f72254494a15d1e6aa9845915383e50f5a28d4d24709f80c28262f182b.png" />
+<img alt="../_images/d3e83437a99adb8bdbd3d4db140f2b41b5c90cca018795ca6489c276c15a066d.png" src="../_images/d3e83437a99adb8bdbd3d4db140f2b41b5c90cca018795ca6489c276c15a066d.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1093,8 +1314,8 @@ Number of 1 jet wrongly predicted is 21540
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">H_b1_true_correct</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">H_b1_true_wrong</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">H_b1_true_correct</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">H_b1_true_wrong</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;correct&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong&quot;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Higgs b1 (normalised)&quot;</span><span class="p">)</span>
@@ -1105,7 +1326,38 @@ Number of 1 jet wrongly predicted is 21540
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/de918370f00ec892759d6381cf3c75149e7aaa7674a371df2fe535d958bccb07.png" src="../_images/de918370f00ec892759d6381cf3c75149e7aaa7674a371df2fe535d958bccb07.png" />
+<img alt="../_images/dc7ade2de77f1a306d5bbdce50eca4ef7640b714d3582f71dd4d1eb10b05793e.png" src="../_images/dc7ade2de77f1a306d5bbdce50eca4ef7640b714d3582f71dd4d1eb10b05793e.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">H_b2_true_correct</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">H_b2_true_wrong</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;correct&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Higgs b2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">H_b2_true_correct</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">H_b2_true_wrong</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;correct&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Higgs b2 (normalised)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/9be40d82156afdb981264eee4fb1916aad17a54710d10e3ad490eb6727300116.png" src="../_images/9be40d82156afdb981264eee4fb1916aad17a54710d10e3ad490eb6727300116.png" />
+<img alt="../_images/63585a4991b335e1e65dad8e49250b253c002bfb435a4db4a49d1c6b6576828f.png" src="../_images/63585a4991b335e1e65dad8e49250b253c002bfb435a4db4a49d1c6b6576828f.png" />
 </div>
 </div>
 </section>
@@ -1140,13 +1392,22 @@ Number of 1 jet wrongly predicted is 21540
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="plots_v5_matched.html"
+       href="predicted_vs_true.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Plots for fully matched dataset</p>
+        <p class="prev-next-title">Initial plots for ttH</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="efficiencies.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fully matched efficiency plots</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -1163,9 +1424,15 @@ Number of 1 jet wrongly predicted is 21540
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top">Hadronic top</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs">Higgs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialise">Initialise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correct-vs-wrong-pt-distributions">Correct vs wrong pt distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leptonic-top">Leptonic top</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hadronic-top">Hadronic top</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#higgs">Higgs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correct-vs-wrong-higgs-mass">Correct vs wrong Higgs mass</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correct-vs-wrong-by-higgs-quark-pt">Correct vs wrong by Higgs quark pt</a></li>
 </ul>
   </nav></div>
 

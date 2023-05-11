@@ -4,7 +4,13 @@
 format: jb-book
 root: intro
 chapters:
-- file: docs/JetTagging_InitialPlots
-- file: docs/plots_v5_matched
+#- file: docs/JetTagging_InitialPlots
+- file: docs/InitialPlots
+- file: docs/predicted_vs_true
 - file: docs/correct_vs_wrong
+- file: docs/correct_vs_wrong_1105
 - file: docs/efficiencies
+- file: docs/efficiencies-0504
+- file: docs/efficiencies-0505
+- file: docs/nb0504
+- file: docs/nb1005
